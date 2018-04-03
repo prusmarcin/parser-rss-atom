@@ -1,0 +1,27 @@
+{
+    "name": "prusmarcin/package-skeleton",
+    "description": "Parser RSS/Atom",
+    "keywords": ["parser"],
+    "homepage": "https://github.com/prusmarcin/package-skeleton",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcin Prus",
+            "email": "kontakt@prusmarcin.pl",
+            "homepage": "https://prusmarcin.pl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarcinPrus\\Parser\\": ["src/Parser"],
+            "MarcinPrus\\Save\\": ["src/Save"]
+        }
+    }
+}
