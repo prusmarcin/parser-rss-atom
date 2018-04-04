@@ -1,10 +1,10 @@
 Package ParserRssAtom
 ================
 
-[![Build Status](http://img.shields.io/travis/prusmarcin/parserRssAtom.svg)](https://travis-ci.org/prusmarcin/parserRssAtom)
-[![Total Downloads](http://img.shields.io/packagist/dm/sammyk/package-skeleton.svg)](https://packagist.org/packages/prusmarcin/parserRssAtom)
-[![Latest Stable Version](http://img.shields.io/packagist/v/prusmarcin/parserRssAtom.svg)](https://packagist.org/packages/prusmarcin/parserRssAtom)
-[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/prusmarcin/parserRssAtom/blob/master/LICENSE)
+[![Build Status](http://img.shields.io/travis/prusmarcin/parser-rss-atom.svg)](https://travis-ci.org/prusmarcin/parser-rss-atom)
+[![Total Downloads](http://img.shields.io/packagist/dm/prusmarcin/parser-rss-atom.svg)](https://packagist.org/packages/prusmarcin/parser-rss-atom)
+[![Latest Stable Version](http://img.shields.io/packagist/v/prusmarcin/parser-rss-atom.svg)](https://packagist.org/packages/prusmarcin/parser-rss-atom)
+[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/prusmarcin/parser-rss-atom/blob/master/LICENSE)
 
 
 :package_description
@@ -27,7 +27,7 @@ Add the prusmarcin/parserRssAtom package to your `composer.json` file.
 ``` json
 {
     "require": {
-        "prusmarcin/parserRssAtom": "0.*"
+        "prusmarcin/parser-rss-atom": "0.*"
     }
 }
 ```
@@ -35,7 +35,7 @@ Add the prusmarcin/parserRssAtom package to your `composer.json` file.
 Or via the command line in the root of your application installation.
 
 ``` bash
-$ composer require "prusmarcin/parserRssAtom:0.*"
+$ composer require "prusmarcin/parser-rss-atom:0.*"
 ```
 
 Usage
