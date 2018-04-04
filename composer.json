@@ -1,5 +1,5 @@
 {
-    "name": "parser-rss-atom",
+    "name": "prusmarcin/parser-rss-atom",
     "description": "Parser RSS/Atom",
     "keywords": ["parser"],
     "homepage": "https://github.com/prusmarcin/parser-rss-atom",
