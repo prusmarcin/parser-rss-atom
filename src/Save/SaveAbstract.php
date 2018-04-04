@@ -1,6 +1,9 @@
 <?php
 namespace MarcinPrus\Save;
 
+/**
+ * Include all method that SaveAs Csv, Txt, Sql, etc
+ */
 abstract class SaveAbstract
 {
 
@@ -47,7 +50,7 @@ abstract class SaveAbstract
             fclose($fh);
         }
 
-        return 'Sukces - Wszystkie dane pomyslnie zostaly zapisane do pliku ' . $fileName;
+        return 'Sukces - Plik z danymi ' . $fileName . ' zostal zapisany w katalogu root aplikacji.';
     }
 
     /**

@@ -21,7 +21,9 @@
     "autoload": {
         "psr-4": {
             "MarcinPrus\\Parser\\": ["src/Parser"],
-            "MarcinPrus\\Save\\": ["src/Save"]
+            "MarcinPrus\\Save\\": ["src/Save"],
+            "MarcinPrus\\Request\\": ["src/Request"],
+            "MarcinPrus\\Message\\": ["src/Message"]
         }
     }
 }

@@ -2,6 +2,11 @@
 
 namespace MarcinPrus\Parser;
 
+use MarcinPrus\Message\MessageClass as Message;
+
+/**
+ * This class has a task to have block the whole script if it is not running in the console
+ */
 abstract class CheckCliAbstract
 {
     /**
@@ -12,9 +17,11 @@ abstract class CheckCliAbstract
     public function run()
     {
         if ('cli' != php_sapi_name()) {
-            //throw new Exception('This has to be run from the command line');
-            //$this->_displayError('Skrypt dziala tylko w trybie CLI');
-            die('Skrypt dziala tylko w trybie CLI');
+            Message::displayError(array([
+                'error' => true,
+                'message' => 'Skrypt dziala tylko w trybie CLI'
+            ]));
+            die('');
         }
     }
 }

@@ -6,17 +6,13 @@ use MarcinPrus\Save\SaveFileClass as Save;
 
 if (isset($argc) && isset($argv)) {
     $parser = new Parser();
+    $parser->requestMethod = 'curl';
     $parser->run();
     $parser->parseCliParameters($argc, $argv);
-    $itemsArray = $parser->parseContent();
 
     $save = new Save();
     $save->fileType = $parser->fileType;
-    $response = $save->toFile($parser->path, $parser->saveOption, $itemsArray);
-
-    echo $response;
-
-
+    $response = $save->toFile($parser->path, $parser->saveOption, $parser->parseContent());
 
     echo "\n";
 //    echo "fileType:".$parser->fileType."\n";

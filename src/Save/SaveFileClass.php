@@ -1,9 +1,18 @@
 <?php
 namespace MarcinPrus\Save;
 
+use MarcinPrus\Message\MessageClass as Message;
+
+/**
+ * Save all data from application to file
+ */
 class SaveFileClass extends SaveAbstract
 {
 
+    /**
+     * Have value 'csv' 
+     * @var fileType
+     */
     public $fileType = null;
 
     /**
@@ -14,10 +23,23 @@ class SaveFileClass extends SaveAbstract
      * @param array $items - array of object data from rss
      * @return Return string.
      */
-    public function ToFile(string $fileName, string $saveOption, $items = array()): string
+    public function ToFile(string $fileName, string $saveOption, $items = array()): bool
     {
-        if ($this->fileType == 'csv') {
-            return $this->SaveAsCsv($fileName, $saveOption, $items);
+        if (empty($items)) {
+            //nic nie rob jesli tablica jest pusta to nie ma sensu zapisywac do pliku
+            Message::displayInfo(array([
+                'info' => true,
+                'message' => 'Nie ma danych do zapisu wiec plik nie zostal utworzony'
+            ]));
+            return false;
+        } else {
+            if ($this->fileType == 'csv') {
+                Message::displayInfo(array([
+                'info' => true,
+                'message' => $this->SaveAsCsv($fileName, $saveOption, $items)
+            ]));
+                return true;
+            }
         }
     }
 }
