@@ -1,8 +1,8 @@
 {
-    "name": "prusmarcin/parserRssAtom",
+    "name": "parser-rss-atom",
     "description": "Parser RSS/Atom",
     "keywords": ["parser"],
-    "homepage": "https://github.com/prusmarcin/parserRssAtom",
+    "homepage": "https://github.com/prusmarcin/parser-rss-atom",
     "license": "MIT",
     "authors": [
         {
