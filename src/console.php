@@ -12,7 +12,9 @@ if (isset($argc) && isset($argv)) {
 
     $save = new Save();
     $save->fileType = $parser->fileType;
-    $response = $save->toFile($parser->path, $parser->saveOption, $parser->parseContent());
+    $response = $save->toFile(
+        $parser->path, $parser->saveOption, $parser->parseContent()
+    );
 
     echo "\n";
 //    echo "fileType:".$parser->fileType."\n";

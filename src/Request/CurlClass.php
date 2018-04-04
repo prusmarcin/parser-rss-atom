@@ -14,7 +14,7 @@ class CurlClass implements RequestInterface
      * @var string
      */
     private $response = null;
-    
+
     /**
      * Success or failure.
      * @var boolean
@@ -26,6 +26,27 @@ class CurlClass implements RequestInterface
      * @var array
      */
     private $errorCodes = array();
+
+    /**
+     * Stores instances of the object
+     * @var instance
+     */
+    private static $instance;
+
+    /**
+     * Create a configured instance to use the CurlClass service.
+     */
+    public function __construct()
+    {
+        if (!self::$instance) {
+            self::$instance = $this;
+            //echo "Create new object";
+            return self::$instance;
+        } else {
+            //echo "Return old object";
+            return self::$instance;
+        }
+    }
 
     /**
      * Submit the cURL request.
@@ -57,7 +78,7 @@ class CurlClass implements RequestInterface
             return false;
         }
     }
-    
+
     /**
      * get Response
      *

@@ -15,25 +15,25 @@ class ParserClass extends CheckCliAbstract implements ParserInterface
      * @var fileType
      */
     public $fileType = null;
-    
+
     /**
      * Have value simple or extended
      * @var saveOption
      */
     public $saveOption = null;
-    
+
     /**
      * Have url to RSS/Atom
      * @var url
      */
     private $url = null;
-    
+
     /**
      * Have file name and extension
      * @var path
      */
     public $path = null;
-    
+
     /**
      * Have 'curl' or other methods
      * @var requestMethod
@@ -41,11 +41,24 @@ class ParserClass extends CheckCliAbstract implements ParserInterface
     public $requestMethod = null; //`curl` or `file_get_contents`
 
     /**
+     * Stores instances of the object
+     * @var instance
+     */
+    private static $instance;
+
+    /**
      * Create a configured instance to use the ParserClass service.
      */
     public function __construct()
     {
- 
+        if (!self::$instance) {
+            self::$instance = $this;
+            //echo "Create new object";
+            return self::$instance;
+        } else {
+            //echo "Return old object";
+            return self::$instance;
+        }
     }
 
     /**
@@ -65,10 +78,10 @@ class ParserClass extends CheckCliAbstract implements ParserInterface
                     'error' => true,
                     'message' => 'Wymagana flaga csv: wprowadz csv:simple lub csv:extended'
             ]));
-            /*$this->_displayError(array([
-                    'error' => true,
-                    'message' => 'Wymagana flaga csv: wprowadz csv:simple lub csv:extended'
-            ]));*/
+            /* $this->_displayError(array([
+              'error' => true,
+              'message' => 'Wymagana flaga csv: wprowadz csv:simple lub csv:extended'
+              ])); */
             return false;
         }
 
@@ -167,8 +180,8 @@ class ParserClass extends CheckCliAbstract implements ParserInterface
     {
         $tabObj = array();
 
-        if($this->requestMethod == 'curl'){
-            
+        if ($this->requestMethod == 'curl') {
+
             $curl = new Request\CurlClass();
             $curl->submit($this->url);
 
@@ -228,16 +241,15 @@ class ParserClass extends CheckCliAbstract implements ParserInterface
                         $tabObj[] = $xml;
                     }
                 } else {
-
+                    
                 }
             } //end if else isSuccess
-            
         } // end if requestMethod == 'curl'
 
         return $tabObj;
     }
+    /* Magic method */
 
-    /*Magic method*/
     public function __get($name)
     {
         return $this->$name;

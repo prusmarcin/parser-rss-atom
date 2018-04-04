@@ -1,16 +1,18 @@
-Package Skeleton
+Package ParserRssAtom
 ================
 
-[![Build Status](http://img.shields.io/travis/SammyK/package-skeleton.svg)](https://travis-ci.org/SammyK/package-skeleton)
-[![Total Downloads](http://img.shields.io/packagist/dm/sammyk/package-skeleton.svg)](https://packagist.org/packages/sammyk/package-skeleton)
-[![Latest Stable Version](http://img.shields.io/packagist/v/sammyk/package-skeleton.svg)](https://packagist.org/packages/sammyk/package-skeleton)
-[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/SammyK/package-skeleton/blob/master/LICENSE)
+[![Build Status](http://img.shields.io/travis/prusmarcin/parserRssAtom.svg)](https://travis-ci.org/prusmarcin/parserRssAtom)
+[![Total Downloads](http://img.shields.io/packagist/dm/sammyk/package-skeleton.svg)](https://packagist.org/packages/prusmarcin/parserRssAtom)
+[![Latest Stable Version](http://img.shields.io/packagist/v/prusmarcin/parserRssAtom.svg)](https://packagist.org/packages/prusmarcin/parserRssAtom)
+[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/prusmarcin/parserRssAtom/blob/master/LICENSE)
 
 
 :package_description
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Commands](#commands)
+- [Information](#information)
 - [Testing](#testing)
 - [Contributing](#contributing)
 - [Credits](#credits)
@@ -20,32 +22,78 @@ Package Skeleton
 Installation
 ------------
 
-Add the package-skeleton package to your `composer.json` file.
+Add the prusmarcin/parserRssAtom package to your `composer.json` file.
 
 ``` json
 {
     "require": {
-        "sammyk/package-skeleton": "1.0.*"
+        "prusmarcin/parserRssAtom": "0.*"
     }
 }
 ```
 
-Or via the command line in the root of your Laravel installation.
+Or via the command line in the root of your application installation.
 
 ``` bash
-$ composer require "sammyk/package-skeleton:1.0*"
+$ composer require "prusmarcin/parserRssAtom:0.*"
 ```
 
 Usage
 -----
 
 ``` php
-use SammyK\Skeleton;
+use MarcinPrus\Parser\ParserClass as Parser;
+use MarcinPrus\Save\SaveFileClass as Save;
 
-$skeleton = new Skeleton();
-echo $skeleton->echoPhrase('Hello, World!');
+if (isset($argc) && isset($argv)) {
+    $parser = new Parser();
+    $parser->requestMethod = 'curl';
+    $parser->run();
+    $parser->parseCliParameters($argc, $argv);
+
+    $save = new Save();
+    $save->fileType = $parser->fileType;
+    $response = $save->toFile(
+        $parser->path, $parser->saveOption, $parser->parseContent()
+    );
+} else {}
 
 ```
+
+
+Commands
+-------
+
+Use onlny by CLI: Windows CMD, Unix Shell
+
+``` bash
+$ php src/console.php csv:simple http://feeds.nationalgeographic.com/ng/News/News_Main eksport_prosty.csv
+```
+
+OR
+
+``` bash
+$ php src/console.php csv:extended http://feeds.nationalgeographic.com/ng/News/News_Main eksport_prosty.csv
+```
+Result array
+
+``` php
+Array
+(
+    [0] => Array
+        (
+            [info] => 1
+            [message] => Success - The file export_prosty.csv was saved in the root directory of the application.
+        )
+
+)
+
+```
+
+Information
+-----------
+
+A csv file is written to the disk. The columns are separated by a `Tab`.
 
 
 Testing
@@ -59,17 +107,17 @@ $ phpunit
 Contributing
 ------------
 
-Please see [CONTRIBUTING](https://github.com/SammyK/package-skeleton/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/prusmarcin/parserRssAtom/blob/master/CONTRIBUTING.md) for details.
 
 
 Credits
 -------
 
-- [Sammy Kaye Powers](https://github.com/SammyK)
-- [All Contributors](https://github.com/SammyK/package-skeleton/contributors)
+- [Sammy Kaye Powers](https://github.com/prusmarcin)
+- [All Contributors](https://github.com/prusmarcin/parserRssAtom/contributors)
 
 
 License
 -------
 
-The MIT License (MIT). Please see [License File](https://github.com/SammyK/package-skeleton/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/prusmarcin/parserRssAtom/blob/master/LICENSE) for more information.
