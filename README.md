@@ -1,13 +1,10 @@
 Package ParserRssAtom
 ================
 
-[![Build Status](http://img.shields.io/travis/prusmarcin/parser-rss-atom.svg)](https://travis-ci.org/prusmarcin/parser-rss-atom)
 [![Total Downloads](http://img.shields.io/packagist/dm/prusmarcin/parser-rss-atom.svg)](https://packagist.org/packages/prusmarcin/parser-rss-atom)
 [![Latest Stable Version](http://img.shields.io/packagist/v/prusmarcin/parser-rss-atom.svg)](https://packagist.org/packages/prusmarcin/parser-rss-atom)
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/prusmarcin/parser-rss-atom/blob/master/LICENSE)
 
-
-:package_description
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -113,8 +110,8 @@ Please see [CONTRIBUTING](https://github.com/prusmarcin/parserRssAtom/blob/maste
 Credits
 -------
 
-- [Sammy Kaye Powers](https://github.com/prusmarcin)
-- [All Contributors](https://github.com/prusmarcin/parserRssAtom/contributors)
+- [Prus Marcin](https://github.com/prusmarcin)
+- [My portfolio](https://prusmarcin.pl)
 
 
 License
